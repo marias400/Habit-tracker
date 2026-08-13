@@ -1,16 +1,42 @@
-# React + Vite
+# Habit Tracker & Analytics WebApp
+**License:** MIT  
+**Tech Stack:** HTML5, CSS3, JavaScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Aplicación web moderna para la gestión de hábitos diarios, cálculo automático de rachas y análisis estadístico visual, construida sobre una arquitectura liviana compatible con importación/exportación a Microsoft Excel.
 
-Currently, two official plugins are available:
+## 📌 Contexto Académico
+Este proyecto forma parte de la Actividad de Aprendizaje N° 3 de la cátedra Ingeniería de Software en la Universidad Nacional de La Rioja (UNLaR). Integra conceptos prácticos de experiencia de usuario (UX/UI) con los principios teóricos del libro *Ingeniería del Software: Un Enfoque Práctico* (Pressman, Cap. 13).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Características Principales
+- **Matriz Interactiva:** Seguimiento diario de hábitos (Meditar, Tesis, Software, Moto, Cocinar) por mes.
+- **Cálculo de Rachas (Streaks):** Contador de días consecutivos cumplidos con indicadores de fuego (🔥).
+- **Dashboard Estadístico:** Gráficos de barras interactivos con métricas de volumen diario e hitos.
+- **Sincronización con Excel:** Carga y exportación directa a formato `.xlsx` manteniendo la estructura original.
+- **Modo Oscuro Minimalista:** Interfaz limpia diseñada bajo patrones de UX modernos.
 
-## React Compiler
+## 🎨 Proceso de Diseño UX/UI
+El desarrollo del producto siguió un refinamiento progresivo de 4 etapas:
+1. **Sketch:** Bocetado rápido de la distribución de la matriz y contenedores de métricas.
+2. **Wireframe:** Estructuración de baja fidelidad para definir la navegación y la jerarquía de información.
+3. **Mockup:** Definición del sistema de diseño, paleta de colores (`#121212` / `#00E676`) e iconografía.
+4. **Prototipo:** Simulación interactiva de los flujos de navegación y guardado de datos.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+👉 [Ver Tablero de Diseño Completo en Miro](#)
 
-## Expanding the Oxlint configuration
+## 🛠️ Tecnologías Utilizadas
+- **Frontend:** HTML5 Semántico, CSS3 (Flexbox/Grid), JavaScript (ES6 Modules).
+- **Librerías Visuales & Datos:** Chart.js (Estadísticas), SheetJS (Parser de Excel).
+- **Herramientas de Diseño:** Miro, Figma.
+- **Gestión del Proyecto:** GitHub Projects, Git.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## 👥 Integrantes del Equipo
+- Agüero Matzkin, Mateo Francisco
+- Molina Torres, Micaela
+- Chehadi, Tamam Abigail
+- Arias Simone, Mariano
+- Soreire, J. Lautaro
+- Barros Muñoz, Ulices Victor Hugo
+- Gómez, Joaquín Emiliano
+
+## 📄 Licencia
+Este proyecto se encuentra bajo la Licencia MIT.

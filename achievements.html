@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logros - Habit Tracker</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <div class="app">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand-icon"><i data-lucide="check-circle"></i></div>
+        HABIT TRACKER
+      </div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link"><i data-lucide="home"></i><span>Inicio</span></a>
+        <a href="statistics.html" class="sidebar-link"><i data-lucide="bar-chart-3"></i><span>Estadísticas</span></a>
+        <a href="calendar.html" class="sidebar-link"><i data-lucide="calendar-days"></i><span>Calendario</span></a>
+        <a href="achievements.html" class="sidebar-link active"><i data-lucide="trophy"></i><span>Logros</span></a>
+      </nav>
+      <div class="sidebar-footer">
+        <div style="padding:12px; color:var(--text-secondary); display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;"><div style="display:flex; align-items:center; gap:12px;"><i data-lucide="moon" id="themeIcon"></i><span id="themeText" style="font-size:14px; font-weight:500;">Oscuro</span></div><label class="toggle" style="position:relative; width:44px; height:24px;"><input type="checkbox" id="themeToggle" style="opacity:0; width:0; height:0;"><span class="toggle-slider" style="position:absolute; cursor:pointer; top:0; left:0; right:0; bottom:0; background-color:var(--border); transition:.4s; border-radius:34px;"></span></label></div><div class="sidebar-user" id="logoutBtn">
+          <i data-lucide="user"></i><span>Usuario</span><i data-lucide="smile-plus"></i>
+        </div>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- MAIN -->
+    <main class="main">
+      <div class="topbar">
+        <button class="hamburger-btn" id="hamburgerBtn"><i data-lucide="menu"></i></button>
+        <button class="bell-btn" id="bellBtn"><i data-lucide="bell"></i><span class="bell-dot"></span></button>
+      </div>
+
+      <div class="page">
+        <h1 class="page-title">LOGROS</h1>
+
+        <!-- Banner -->
+        <div class="ach-banner">
+          <div class="ach-banner-left">
+            <div class="ach-trophy"><i data-lucide="trophy"></i></div>
+            <div class="ach-stats">
+              <h3>Logros desbloqueados</h3>
+              <div class="ach-stats-num">3 / 6</div>
+              <div class="ach-bar">
+                <span class="ach-bar-pct">50%</span>
+                <div class="ach-bar-track"><div class="ach-bar-fill" style="width:50%"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="ach-banner-right">
+            <h3>Vas por un gran camino!</h3>
+            <p>Sigue construyendo buenos hábitos día a día</p>
+          </div>
+        </div>
+
+        <h2 class="section-heading">TUS LOGROS</h2>
+
+        <div class="ach-grid">
+          <!-- Medal 1: Unlocked -->
+          <div class="medal-card unlocked">
+            <div class="medal-icon"><i data-lucide="zap" style="color:#F59E0B"></i></div>
+            <div class="medal-info">
+              <div class="medal-title">Racha de 7 días</div>
+              <div class="medal-desc">Mantén una racha de 7 días</div>
+              <div class="medal-badge">DESBLOQUEADO</div>
+            </div>
+          </div>
+
+          <!-- Medal 2: Unlocked -->
+          <div class="medal-card unlocked">
+            <div class="medal-icon"><i data-lucide="check" style="color:#10B981"></i></div>
+            <div class="medal-info">
+              <div class="medal-title">10 hábitos completados</div>
+              <div class="medal-desc">Completa 10 hábitos en total</div>
+              <div class="medal-badge">DESBLOQUEADO</div>
+            </div>
+          </div>
+
+          <!-- Medal 3: Unlocked -->
+          <div class="medal-card unlocked">
+            <div class="medal-icon"><i data-lucide="star" style="color:#06B6D4"></i></div>
+            <div class="medal-info">
+              <div class="medal-title">Semana perfecta</div>
+              <div class="medal-desc">Completa todos tus hábitos en 7 días</div>
+              <div class="medal-badge">DESBLOQUEADO</div>
+            </div>
+          </div>
+
+          <!-- Medal 4: Locked -->
+          <div class="medal-card locked">
+            <div class="medal-icon"><i data-lucide="lock"></i></div>
+            <div class="medal-info">
+              <div class="medal-title">Racha de 30 días</div>
+              <div class="medal-desc">Mantén una racha de 30 días</div>
+              <div class="medal-badge">BLOQUEADO</div>
+            </div>
+          </div>
+
+          <!-- Medal 5: Locked -->
+          <div class="medal-card locked">
+            <div class="medal-icon"><i data-lucide="lock"></i></div>
+            <div class="medal-info">
+              <div class="medal-title">50 hábitos completados</div>
+              <div class="medal-desc">Completa 50 hábitos en total</div>
+              <div class="medal-badge">BLOQUEADO</div>
+            </div>
+          </div>
+
+          <!-- Medal 6: Locked -->
+          <div class="medal-card locked">
+            <div class="medal-icon"><i data-lucide="lock"></i></div>
+            <div class="medal-info">
+              <div class="medal-title">Maestro de hábitos</div>
+              <div class="medal-desc">Completa todos tus hábitos en 30 días</div>
+              <div class="medal-badge">BLOQUEADO</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

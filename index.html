@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio - Habit Tracker</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+
+  <div class="app">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand-icon"><i data-lucide="check-circle"></i></div>
+        HABIT TRACKER
+      </div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link active"><i data-lucide="home"></i><span>Inicio</span></a>
+        <a href="statistics.html" class="sidebar-link"><i data-lucide="bar-chart-3"></i><span>Estadísticas</span></a>
+        <a href="calendar.html" class="sidebar-link"><i data-lucide="calendar-days"></i><span>Calendario</span></a>
+        <a href="achievements.html" class="sidebar-link"><i data-lucide="trophy"></i><span>Logros</span></a>
+      </nav>
+      <div class="sidebar-footer">
+        <div style="padding:12px; color:var(--text-secondary); display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;"><div style="display:flex; align-items:center; gap:12px;"><i data-lucide="moon" id="themeIcon"></i><span id="themeText" style="font-size:14px; font-weight:500;">Oscuro</span></div><label class="toggle" style="position:relative; width:44px; height:24px;"><input type="checkbox" id="themeToggle" style="opacity:0; width:0; height:0;"><span class="toggle-slider" style="position:absolute; cursor:pointer; top:0; left:0; right:0; bottom:0; background-color:var(--border); transition:.4s; border-radius:34px;"></span></label></div><div class="sidebar-user" id="logoutBtn">
+          <i data-lucide="user"></i><span>Usuario</span><i data-lucide="smile-plus"></i>
+        </div>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- MAIN -->
+    <main class="main">
+      <div class="topbar" style="gap: 12px;">
+        <button class="hamburger-btn" id="hamburgerBtn"><i data-lucide="menu"></i></button>
+        <button id="exportBtn" style="background:var(--primary-lighter); border:none; padding:8px 12px; border-radius:6px; font-size:12px; font-weight:600; color:var(--primary); display:flex; align-items:center; gap:6px;">
+          <i data-lucide="download" style="width:16px; height:16px;"></i> Excel
+        </button>
+        <label style="background:var(--primary-lighter); border:none; padding:8px 12px; border-radius:6px; font-size:12px; font-weight:600; color:var(--primary); display:flex; align-items:center; gap:6px; cursor:pointer;">
+          <i data-lucide="upload" style="width:16px; height:16px;"></i> Importar
+          <input type="file" id="importFile" accept=".xlsx" style="display:none;">
+        </label>
+        <button class="bell-btn" id="bellBtn"><i data-lucide="bell"></i><span class="bell-dot"></span></button>
+      </div>
+
+      <div class="page">
+        <!-- Welcome Banner -->
+        <div class="welcome-banner">
+          <div>
+            <h2>Qué gusto verte!</h2>
+            <p>Seleccioná la fecha para ver tus hábitos del día.</p>
+            <div class="date-field">
+              <small>Fecha:</small>
+              <div class="date-field-row">
+                <input type="date" id="dateInput" value="2026-08-11">
+              </div>
+            </div>
+            <div class="welcome-actions">
+              <button class="btn-cancel" type="button">Cancelar</button>
+              <button class="btn-ok" type="button">OK</button>
+            </div>
+          </div>
+          <div class="avatar-circle">
+            <i data-lucide="user"></i>
+          </div>
+        </div>
+
+        <!-- Progress -->
+        <div class="progress-row">
+          <div class="progress-label">PROGRESO DIARIO</div>
+          <div class="ring-wrap">
+            <svg width="76" height="76">
+              <circle class="ring-bg" cx="38" cy="38" r="32" stroke-width="6"/>
+              <circle class="ring-fill" id="dashRingFill" cx="38" cy="38" r="32" stroke-width="6" stroke-dasharray="201.1" stroke-dashoffset="66.4"/>
+            </svg>
+            <div class="ring-text" id="dashRingText">67%</div>
+          </div>
+          <div class="progress-info">
+            <strong id="dashCount">3 DE 5</strong>
+            <span>hábitos completados</span>
+          </div>
+        </div>
+
+        <!-- Habit List -->
+        <div class="habit-list" id="habitList">
+          <!-- Rendered by JS -->
+        </div>
+
+        <!-- Add button -->
+        <button class="btn-add-habit" id="addHabitBtn">
+          <i data-lucide="plus-circle"></i>
+          AGREGAR NUEVO HÁBITO
+        </button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Add Habit Modal -->
+  <div class="modal-overlay hidden" id="addModal">
+    <div class="modal">
+      <h2>Nuevo Hábito</h2>
+      <form id="addHabitForm">
+        <div class="form-group">
+          <label>Nombre del hábito</label>
+          <input type="text" class="form-input" id="newHabitName" placeholder="Ej: Meditar 10 minutos" required>
+        </div>
+        <div class="form-group">
+          <label>Categoría</label>
+          <select class="form-select" id="newHabitCat">
+            <option value="salud">💧 Salud</option>
+            <option value="ejercicio">🏃 Ejercicio</option>
+            <option value="creatividad">🎸 Creatividad</option>
+            <option value="bienestar">🧘 Bienestar</option>
+            <option value="educacion">📚 Educación</option>
+          </select>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-cancel" id="cancelModal">Cancelar</button>
+          <button type="submit" class="btn-ok">Crear hábito</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

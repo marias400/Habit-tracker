@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estadísticas - Habit Tracker</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <div class="app">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand-icon"><i data-lucide="check-circle"></i></div>
+        HABIT TRACKER
+      </div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link"><i data-lucide="home"></i><span>Inicio</span></a>
+        <a href="statistics.html" class="sidebar-link active"><i data-lucide="bar-chart-3"></i><span>Estadísticas</span></a>
+        <a href="calendar.html" class="sidebar-link"><i data-lucide="calendar-days"></i><span>Calendario</span></a>
+        <a href="achievements.html" class="sidebar-link"><i data-lucide="trophy"></i><span>Logros</span></a>
+      </nav>
+      <div class="sidebar-footer">
+        <div style="padding:12px; color:var(--text-secondary); display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;"><div style="display:flex; align-items:center; gap:12px;"><i data-lucide="moon" id="themeIcon"></i><span id="themeText" style="font-size:14px; font-weight:500;">Oscuro</span></div><label class="toggle" style="position:relative; width:44px; height:24px;"><input type="checkbox" id="themeToggle" style="opacity:0; width:0; height:0;"><span class="toggle-slider" style="position:absolute; cursor:pointer; top:0; left:0; right:0; bottom:0; background-color:var(--border); transition:.4s; border-radius:34px;"></span></label></div><div class="sidebar-user" id="logoutBtn">
+          <i data-lucide="user"></i><span>Usuario</span><i data-lucide="smile-plus"></i>
+        </div>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- MAIN -->
+    <main class="main">
+      <div class="topbar">
+        <button class="hamburger-btn" id="hamburgerBtn"><i data-lucide="menu"></i></button>
+        <button class="bell-btn" id="bellBtn"><i data-lucide="bell"></i><span class="bell-dot"></span></button>
+      </div>
+
+      <div class="page">
+        <div class="stats-top">
+          <h1 class="page-title" style="margin:0;">ESTADISTICAS</h1>
+          <div class="period-wrap">
+            <span>Periodo:</span>
+            <select class="period-select">
+              <option>Esta semana</option>
+              <option>Este mes</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Cards -->
+        <div class="stats-cards">
+          <div class="stat-card">
+            <div class="stat-card-title">Tasa de efectividad</div>
+            <div class="stat-card-value" id="statEfficiency">75%</div>
+            <div class="stat-card-sub">Promedio semanal</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-title">Racha actual</div>
+            <div class="stat-card-value" id="statStreak">14</div>
+            <div class="stat-card-sub">Dias</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-title">Hábitos completados</div>
+            <div class="stat-card-value" id="statCompleted">27</div>
+            <div class="stat-card-sub">Esta semana</div>
+          </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="chart-box">
+          <div class="chart-heading">EFECTIVIDAD DIARIA</div>
+          <div class="chart-area" style="position: relative; height: 300px; width: 100%;">
+            <canvas id="statsChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="stats-table-box">
+          <table class="stats-table" id="statsTable">
+            <thead>
+              <tr><th>HABITO</th><th>PROMEDIO</th></tr>
+            </thead>
+            <tbody>
+              <!-- Rendered by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

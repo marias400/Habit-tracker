@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendario - Habit Tracker</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <div class="app">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand-icon"><i data-lucide="check-circle"></i></div>
+        HABIT TRACKER
+      </div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="sidebar-link"><i data-lucide="home"></i><span>Inicio</span></a>
+        <a href="statistics.html" class="sidebar-link"><i data-lucide="bar-chart-3"></i><span>Estadísticas</span></a>
+        <a href="calendar.html" class="sidebar-link active"><i data-lucide="calendar-days"></i><span>Calendario</span></a>
+        <a href="achievements.html" class="sidebar-link"><i data-lucide="trophy"></i><span>Logros</span></a>
+      </nav>
+      <div class="sidebar-footer">
+        <div style="padding:12px; color:var(--text-secondary); display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;"><div style="display:flex; align-items:center; gap:12px;"><i data-lucide="moon" id="themeIcon"></i><span id="themeText" style="font-size:14px; font-weight:500;">Oscuro</span></div><label class="toggle" style="position:relative; width:44px; height:24px;"><input type="checkbox" id="themeToggle" style="opacity:0; width:0; height:0;"><span class="toggle-slider" style="position:absolute; cursor:pointer; top:0; left:0; right:0; bottom:0; background-color:var(--border); transition:.4s; border-radius:34px;"></span></label></div><div class="sidebar-user" id="logoutBtn">
+          <i data-lucide="user"></i><span>Usuario</span><i data-lucide="smile-plus"></i>
+        </div>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- MAIN -->
+    <main class="main">
+      <div class="topbar">
+        <button class="hamburger-btn" id="hamburgerBtn"><i data-lucide="menu"></i></button>
+        <button class="bell-btn" id="bellBtn"><i data-lucide="bell"></i><span class="bell-dot"></span></button>
+      </div>
+
+      <div class="page" style="max-width:1200px;">
+        <h1 class="page-title">CALENDARIO</h1>
+
+        <div class="cal-layout">
+          <!-- Calendar Grid -->
+          <div class="cal-main">
+            <div class="cal-header">
+              <div class="cal-title" id="calTitle"><!-- JS --></div>
+              <div class="cal-nav">
+                <button id="calPrev"><i data-lucide="chevron-left"></i></button>
+                <button id="calNext"><i data-lucide="chevron-right"></i></button>
+              </div>
+            </div>
+
+            <div class="cal-grid" id="calGrid">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
+          <!-- Day Detail Panel -->
+          <div class="day-panel" id="dayPanel">
+            <div class="day-panel-header">
+              <div class="day-panel-title">DETALLE DEL DÍA</div>
+              <div class="day-panel-date" id="dayPanelDate">
+                <i data-lucide="calendar-days"></i>
+                <span>Seleccioná un día</span>
+              </div>
+            </div>
+
+            <div class="day-panel-progress">
+              <div class="day-ring-wrap">
+                <svg width="64" height="64" style="transform:rotate(-90deg)">
+                  <circle class="ring-bg" cx="32" cy="32" r="26" stroke-width="5"/>
+                  <circle class="ring-fill" id="dayRingFill" cx="32" cy="32" r="26" stroke-width="5" stroke-dasharray="163.4" stroke-dashoffset="163.4"/>
+                </svg>
+                <div class="day-ring-text" id="dayRingText">0%</div>
+              </div>
+              <div class="day-panel-stats">
+                <strong id="dayPanelCount">0 DE 0</strong>
+                <span>hábitos completados</span>
+              </div>
+            </div>
+
+            <div class="day-panel-list" id="dayPanelList">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
